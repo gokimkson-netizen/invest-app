@@ -19,7 +19,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: 필수 비밀값 확인(DATA_KEY 없으면 여기서 중단)
-        env: { DATA_KEY: ${{ secrets.DATA_KEY }} }
+        env:
+          DATA_KEY: ${{ secrets.DATA_KEY }}
         run: |
           if [ -z "$DATA_KEY" ]; then echo "::error::DATA_KEY 비밀값이 없습니다. README '비밀값 등록' 단계를 먼저 하세요."; exit 1; fi
       - name: data 브랜치 확인(없음=첫 실행, 확인 실패=중단)
@@ -34,7 +35,8 @@ jobs:
         uses: actions/checkout@v4
         with: { ref: data, path: _data }
       - name: 이전 상태 복호화
-        env: { DATA_KEY: ${{ secrets.DATA_KEY }} }
+        env:
+          DATA_KEY: ${{ secrets.DATA_KEY }}
         run: node batch/calc/dist/cli.mjs unseal _data work/prev
       - name: 수집
         env:
@@ -48,7 +50,8 @@ jobs:
       - name: 계산(공용 TS 모듈)
         run: node batch/calc/dist/cli.mjs build-us work/raw work/prev work/out
       - name: 암호화(D18)
-        env: { DATA_KEY: ${{ secrets.DATA_KEY }} }
+        env:
+          DATA_KEY: ${{ secrets.DATA_KEY }}
         run: node batch/calc/dist/cli.mjs seal work/out work/publish
       - uses: actions/upload-artifact@v4
         with: { name: publish, path: work/publish, retention-days: 1, if-no-files-found: error }
@@ -60,7 +63,9 @@ jobs:
       group: publish
       cancel-in-progress: false
       queue: max
-    environment: { name: github-pages, url: ${{ steps.deploy.outputs.page_url }} }
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup

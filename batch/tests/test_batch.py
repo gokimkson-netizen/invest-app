@@ -12,9 +12,9 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_mask_hides_keys_emails_urls(monkeypatch):
-    monkeypatch.setenv("OPENDART_KEY", "abcdef1234567890")
+    monkeypatch.setenv("OPENDART_KEY", "abcdef1234567890")  # gitleaks:allow (테스트용 가짜 키)
     monkeypatch.setenv("SEC_USER_AGENT", "Kim kim@example.com")
-    s = mask("GET https://opendart.fss.or.kr/api/list.json?crtfc_key=abcdef1234567890 by kim@example.com api_key=zzz ecos StatisticSearch/ECOSKEY123/json")
+    s = mask("GET https://opendart.fss.or.kr/api/list.json?crtfc_key=abcdef1234567890 by kim@example.com api_key=zzz ecos StatisticSearch/ECOSKEY123/json")  # gitleaks:allow (테스트용 가짜 키)
     assert "abcdef1234567890" not in s and "kim@example.com" not in s and "zzz" not in s and "ECOSKEY123" not in s and "https://" not in s
 
 

@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ALLOW_EMAIL = re.compile(r"(noreply@anthropic\.com|41898282\+github-actions\[bot\]@users\.noreply\.github\.com|@example\.com|@users\.noreply\.github\.com)$")
 PATTERNS = {
-    "이메일": re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.[A-Za-z0-9.-]*[A-Za-z]{2,}"),
+    "이메일": re.compile(r"[A-Za-z0-9][A-Za-z0-9._%+-]*@[A-Za-z0-9-]+\.[A-Za-z0-9.-]*[A-Za-z]{2,}"),
     "Google API 키": re.compile(r"AIza[0-9A-Za-z_\-]{35}"),
     "GitHub 토큰": re.compile(r"\b(ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{36}\b|github_pat_[A-Za-z0-9_]{60,}"),
     "개인 키": re.compile(r"-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----"),
@@ -133,6 +133,15 @@ def main() -> int:
                 fails.append(f"[cron] {f}: '분목록 * * * *' 형식(정각 0분 제외)이 아님")
         elif f"cron: '{c}'" not in y:
             fails.append(f"[cron] {f}: 설계값 '{c}'과 다름")
+    # 6-b) 워크플로 YAML 문법(배포 전에 잡기: GitHub는 문법 오류 파일을 아예 실행하지 않음)
+    import yaml
+    for f in sorted((ROOT / ".github").rglob("*.yml")):
+        try:
+            d = yaml.safe_load(f.read_text(encoding="utf-8"))
+            if f.parent.name == "workflows" and not (isinstance(d, dict) and "jobs" in d and (True in d or "on" in d)):
+                fails.append(f"[YAML] {f.relative_to(ROOT)}: jobs/on 없음")
+        except yaml.YAMLError as e:
+            fails.append(f"[YAML] {f.relative_to(ROOT)}: 문법 오류 {str(e).splitlines()[0]}")
     # 7) 동시 실행 방지(10절 27번): 수집 잡은 워크플로마다 다른 그룹, publish는 공통 그룹 + queue: max, 취소 없음
     groups = set()
     for f in want:
