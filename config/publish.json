@@ -1,0 +1,9 @@
+{
+  "_설명": "publish 잡이 data 브랜치에서 자기 모듈 파일만 바꾸도록 하는 소유 경로 목록(3-4). 평문 허용 파일 외에는 모두 암호화(D18).",
+  "owners": {
+    "daily-us": ["data/m1", "data/m2/us", "data/m3/us", "data/shared/us", "data/status/us.json", "state/us", "state/summaries"],
+    "daily-kr": ["data/m2/kr", "data/m3/kr", "data/shared/kr", "data/status/kr.json", "state/kr"],
+    "news": ["data/m6", "data/status/news.json", "state/news"]
+  },
+  "plaintext": ["data/status/us.json", "data/status/kr.json", "data/status/news.json", "data/_status.json"]
+}

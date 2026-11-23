@@ -1,0 +1,91 @@
+{
+  "_설명": "M6 중요도 규칙(초안 — 11절 8번 사용자 확인 대상). 중요도는 코드가 이 규칙으로 정하고, LLM은 정하지 않는다. TQQQ·SOXL·반도체 가중치는 넣지 않는다(D12).",
+  "version": "draft-2026-11-23",
+  "levels": ["참고", "보통", "높음", "긴급"],
+  "speculation": {
+    "ko": ["가능성", "전망", "예상", "관측", "시사", "검토", "우려", "할 듯", "할까", "?"],
+    "en": ["could", "may ", "might", "expected to", "likely", "unlikely", "considering", "weighs", "?"]
+  },
+  "event_types": [
+    {
+      "id": "rate_hike", "이름": "기준금리 인상", "범위": "시장 전체", "기본": "높음", "가족": "rate",
+      "keywords": { "ko": ["금리 인상", "기준금리 인상", "금리인상", "기준금리를 인상"], "en": ["raises rates", "raised the target range", "rate hike", "raise the target range", "decided to raise"] },
+      "exclude": { "ko": ["인상 가능성 낮", "인상 없", "인상하지 않", "동결", "인하"], "en": ["no rate hike", "not raise", "maintain the target range", "lower the target range"] }
+    },
+    {
+      "id": "rate_cut", "이름": "기준금리 인하", "범위": "시장 전체", "기본": "높음", "가족": "rate",
+      "keywords": { "ko": ["금리 인하", "기준금리 인하", "금리인하", "기준금리를 인하"], "en": ["cuts rates", "lowered the target range", "rate cut", "lower the target range", "decided to lower"] },
+      "exclude": { "ko": ["인하 가능성 낮", "인하 없", "인하하지 않", "동결"], "en": ["no rate cut", "not lower", "maintain the target range"] }
+    },
+    {
+      "id": "rate_hold", "이름": "기준금리 동결", "범위": "시장 전체", "기본": "높음", "가족": "rate",
+      "keywords": { "ko": ["금리 동결", "기준금리 동결", "기준금리를 동결", "금리를 유지"], "en": ["maintain the target range", "holds rates", "leaves rates unchanged", "keeps rates unchanged"] },
+      "exclude": { "ko": [], "en": [] }
+    },
+    {
+      "id": "fomc_statement", "이름": "FOMC 성명·의사록", "범위": "시장 전체", "기본": "높음", "가족": "rate",
+      "keywords": { "ko": ["FOMC 의사록", "FOMC 성명"], "en": ["FOMC statement", "Minutes of the Federal Open Market Committee", "issues FOMC statement"] },
+      "exclude": { "ko": [], "en": [] }
+    },
+    {
+      "id": "cpi", "이름": "소비자물가(CPI) 발표", "범위": "시장 전체", "기본": "높음", "지표": "CPIAUCSL",
+      "keywords": { "ko": ["소비자물가", "CPI"], "en": ["Consumer Price Index", "CPI"] },
+      "exclude": { "ko": ["전망", "예상치"], "en": ["forecast"] }
+    },
+    {
+      "id": "jobs", "이름": "고용 지표 발표", "범위": "시장 전체", "기본": "높음", "지표": "PAYEMS",
+      "keywords": { "ko": ["고용보고서", "비농업 고용", "실업률"], "en": ["Employment Situation", "nonfarm payroll", "unemployment rate"] },
+      "exclude": { "ko": [], "en": [] }
+    },
+    {
+      "id": "gdp_pce", "이름": "GDP·PCE 발표", "범위": "시장 전체", "기본": "높음", "지표": "PCEPI",
+      "keywords": { "ko": ["국내총생산", "GDP", "개인소비지출", "PCE"], "en": ["Gross Domestic Product", "GDP", "Personal Income and Outlays", "PCE price"] },
+      "exclude": { "ko": [], "en": [] }
+    },
+    {
+      "id": "war_sanction", "이름": "전쟁·제재", "범위": "시장 전체", "기본": "높음",
+      "keywords": { "ko": ["전쟁", "공습", "침공", "제재", "수출 통제", "수출통제"], "en": ["war ", "invasion", "airstrike", "sanctions", "export controls"] },
+      "exclude": { "ko": ["무역전쟁 우려", "가격 전쟁"], "en": ["price war"] }
+    },
+    {
+      "id": "trading_halt", "이름": "거래정지", "범위": "개별 종목", "기본": "높음",
+      "keywords": { "ko": ["거래정지", "매매거래정지", "거래 정지"], "en": ["trading halt", "trading suspended"] },
+      "exclude": { "ko": ["거래정지 해제"], "en": ["halt lifted", "resumes trading"] }
+    },
+    {
+      "id": "delisting", "이름": "상장폐지", "범위": "개별 종목", "기본": "높음",
+      "keywords": { "ko": ["상장폐지"], "en": ["delisting", "delisted", "Form 25"] },
+      "exclude": { "ko": ["상장폐지 사유 해소"], "en": [] }
+    },
+    {
+      "id": "capital_mna", "이름": "대규모 증자·인수합병", "범위": "개별 종목", "기본": "보통",
+      "keywords": { "ko": ["유상증자", "인수합병", "합병", "인수 결정", "주요사항보고서(유상증자결정)"], "en": ["merger agreement", "to acquire", "acquisition of", "public offering", "Item 1.01", "Item 2.01"] },
+      "exclude": { "ko": [], "en": [] }
+    },
+    {
+      "id": "big_earnings", "이름": "대형 기업 실적", "범위": "개별 종목", "기본": "보통",
+      "keywords": { "ko": ["잠정실적", "영업(잠정)실적", "실적 발표"], "en": ["Results of Operations", "Item 2.02", "quarterly results", "earnings"] },
+      "exclude": { "ko": [], "en": [] }
+    },
+    {
+      "id": "regulation", "이름": "규제 발표", "범위": "업종", "기본": "보통",
+      "keywords": { "ko": ["규제", "제재심", "과징금", "금융위원회 의결"], "en": ["rule proposal", "final rule", "enforcement action", "proposed rule"] },
+      "exclude": { "ko": ["규제 완화 기대"], "en": [] }
+    }
+  ],
+  "speculation_type": { "id": "rate_outlook", "이름": "금리 전망(결정 아님)", "범위": "시장 전체", "기본": "보통" },
+  "unscheduled_rate_decision": { "적용유형": ["rate_hike", "rate_cut", "rate_hold"], "결과": "긴급", "허용일수": 1, "설명": "공식 일정표에 없던 금리 결정" },
+  "indicator_surprise": {
+    "설명": "직전값 대비 변화가 기준 이상이면 '긴급'. 시장 예상치(컨센서스)가 아니므로 진짜 '예상 밖'과 다름",
+    "기준": {
+      "CPIAUCSL": { "종류": "전월비%", "임계": 0.5 },
+      "PAYEMS": { "종류": "증감차", "임계": 150 },
+      "PCEPI": { "종류": "전월비%", "임계": 0.5 }
+    }
+  },
+  "relevance": { "설명": "유니버스 시총 상위 종목 관련이면 한 단계 가중(최대 '높음')", "상한": "높음" },
+  "c_only_cap": "보통",
+  "cluster": { "jaccard": 0.45, "hours": 6 },
+  "retention_days": 7,
+  "explain_top_n": 10
+}

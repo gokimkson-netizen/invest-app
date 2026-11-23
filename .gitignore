@@ -1,0 +1,24 @@
+# 개인 자료(5-0): 무한매수법 문서·MDD 엑셀·연구 기록 원본과 발췌, 규칙 파일
+private/
+node_modules/
+web/dist/
+batch/calc/dist/
+work/
+site/
+_data/
+tests/.fixture_site/
+tests/.fixture_site_work/
+tests/.fixture_key.json
+tests/.parity/
+tests/.e2e-result.json
+test-results/
+playwright-report/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.env.*
+*.local.json
+.DS_Store
+.wrangler/
+.dev.vars

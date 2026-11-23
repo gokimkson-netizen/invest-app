@@ -1,0 +1,9 @@
+{
+  "_설명": "Gemini 설정. 무료 모델 목록은 바뀔 수 있으므로 AI Studio에서 확인 후 model을 바꾼다. 결제 계정을 연결하지 않는다.",
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.2,
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+  "browser_min_interval_ms": 6500,
+  "batch": { "summary_daily_cap": 100, "min_interval_ms": 6500, "time_budget_min": 40, "excerpt_max_chars": 6000 },
+  "m6_explain_top_n": 10
+}

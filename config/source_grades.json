@@ -1,0 +1,16 @@
+{
+  "_설명": "출처마다 등급을 하나로 고정(4-1). 부록 A-7-3 도메인 매핑과 같은 파일.",
+  "sources": {
+    "SEC EDGAR": "A", "OpenDART": "A", "DART": "A", "FRED": "A", "ECOS": "A",
+    "Stooq": "C", "Tiingo": "B", "Wikipedia 구성종목": "C", "CUSIP 이름 대조": "C",
+    "Gemini AI 요약": "원문 등급 + AI 요약 표시"
+  },
+  "domains": {
+    "sec.gov": "A", "dart.fss.or.kr": "A", "opendart.fss.or.kr": "A", "federalreserve.gov": "A", "bls.gov": "A", "bea.gov": "A",
+    "treasury.gov": "A", "bok.or.kr": "A", "moef.go.kr": "A", "fsc.go.kr": "A", "kostat.go.kr": "A",
+    "reuters.com": "B", "bloomberg.com": "B", "wsj.com": "B", "ft.com": "B", "cnbc.com": "B", "apnews.com": "B",
+    "yna.co.kr": "B", "hankyung.com": "B", "mk.co.kr": "B", "sedaily.com": "B", "chosun.com": "B", "joongang.co.kr": "B"
+  },
+  "default_domain_grade": "C",
+  "company_ir_grade": "A"
+}

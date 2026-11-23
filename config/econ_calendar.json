@@ -1,0 +1,33 @@
+{
+  "_설명": "공식 발표 일정표(M6 상단 '오늘의 주요 경제 일정'과 ⑤ 예상 밖 판정). 시각은 현지 시각, 화면에서 KST로 변환.",
+  "events": [
+    {"date":"2026-12-04","time":"08:30","tz":"America/New_York","type":"jobs","이름":"미국 고용보고서(11월)","출처":"bls.gov","등급":"A"},
+    {"date":"2026-12-09","time":"14:00","tz":"America/New_York","type":"rate_decision","기관":"FOMC","이름":"FOMC 금리 결정(12월 8~9일)","출처":"federalreserve.gov","등급":"A"},
+    {"date":"2026-12-10","time":"08:30","tz":"America/New_York","type":"cpi","이름":"미국 소비자물가(11월)","출처":"bls.gov","등급":"A"},
+    {"date":"2027-01-08","time":"08:30","tz":"America/New_York","type":"jobs","이름":"미국 고용보고서(12월)","출처":"bls.gov","등급":"A"},
+    {"date":"2027-01-13","time":"08:30","tz":"America/New_York","type":"cpi","이름":"미국 소비자물가(12월)","출처":"bls.gov","등급":"A"},
+    {"date":"2027-01-14","time":"09:00","tz":"Asia/Seoul","type":"rate_decision","기관":"BOK","이름":"한국은행 통화정책방향 결정회의","출처":"언론 보도(SBS Biz 2026-10-29)","등급":"B"},
+    {"date":"2027-01-27","time":"14:00","tz":"America/New_York","type":"rate_decision","기관":"FOMC","이름":"FOMC 금리 결정(1월 26~27일, 잠정)","출처":"federalreserve.gov","등급":"A"},
+    {"date":"2027-02-05","time":"08:30","tz":"America/New_York","type":"jobs","이름":"미국 고용보고서(1월)","출처":"bls.gov","등급":"A"},
+    {"date":"2027-02-11","time":"08:30","tz":"America/New_York","type":"cpi","이름":"미국 소비자물가(1월)","출처":"bls.gov","등급":"A"},
+    {"date":"2027-02-25","time":"09:00","tz":"Asia/Seoul","type":"rate_decision","기관":"BOK","이름":"한국은행 통화정책방향 결정회의","출처":"언론 보도(SBS Biz 2026-10-29)","등급":"B"},
+    {"date":"2027-03-05","time":"08:30","tz":"America/New_York","type":"jobs","이름":"미국 고용보고서(2월)","출처":"bls.gov","등급":"A"},
+    {"date":"2027-03-10","time":"08:30","tz":"America/New_York","type":"cpi","이름":"미국 소비자물가(2월)","출처":"bls.gov","등급":"A"},
+    {"date":"2027-03-17","time":"14:00","tz":"America/New_York","type":"rate_decision","기관":"FOMC","이름":"FOMC 금리 결정(3월 16~17일, 잠정)","출처":"federalreserve.gov","등급":"A"},
+    {"date":"2027-04-02","time":"08:30","tz":"America/New_York","type":"jobs","이름":"미국 고용보고서(3월)","출처":"bls.gov","등급":"A"},
+    {"date":"2027-04-09","time":"09:00","tz":"Asia/Seoul","type":"rate_decision","기관":"BOK","이름":"한국은행 통화정책방향 결정회의","출처":"언론 보도(SBS Biz 2026-10-29)","등급":"B"},
+    {"date":"2027-04-13","time":"08:30","tz":"America/New_York","type":"cpi","이름":"미국 소비자물가(3월)","출처":"bls.gov","등급":"A"},
+    {"date":"2027-04-28","time":"14:00","tz":"America/New_York","type":"rate_decision","기관":"FOMC","이름":"FOMC 금리 결정(4월 27~28일, 잠정)","출처":"federalreserve.gov","등급":"A"},
+    {"date":"2027-05-27","time":"09:00","tz":"Asia/Seoul","type":"rate_decision","기관":"BOK","이름":"한국은행 통화정책방향 결정회의","출처":"언론 보도(SBS Biz 2026-10-29)","등급":"B"},
+    {"date":"2027-06-09","time":"14:00","tz":"America/New_York","type":"rate_decision","기관":"FOMC","이름":"FOMC 금리 결정(6월 8~9일, 잠정)","출처":"federalreserve.gov","등급":"A"},
+    {"date":"2027-07-15","time":"09:00","tz":"Asia/Seoul","type":"rate_decision","기관":"BOK","이름":"한국은행 통화정책방향 결정회의","출처":"언론 보도(SBS Biz 2026-10-29)","등급":"B"},
+    {"date":"2027-07-28","time":"14:00","tz":"America/New_York","type":"rate_decision","기관":"FOMC","이름":"FOMC 금리 결정(7월 27~28일, 잠정)","출처":"federalreserve.gov","등급":"A"},
+    {"date":"2027-08-26","time":"09:00","tz":"Asia/Seoul","type":"rate_decision","기관":"BOK","이름":"한국은행 통화정책방향 결정회의","출처":"언론 보도(SBS Biz 2026-10-29)","등급":"B"},
+    {"date":"2027-09-15","time":"14:00","tz":"America/New_York","type":"rate_decision","기관":"FOMC","이름":"FOMC 금리 결정(9월 14~15일, 잠정)","출처":"federalreserve.gov","등급":"A"},
+    {"date":"2027-10-15","time":"09:00","tz":"Asia/Seoul","type":"rate_decision","기관":"BOK","이름":"한국은행 통화정책방향 결정회의","출처":"언론 보도(SBS Biz 2026-10-29)","등급":"B"},
+    {"date":"2027-10-27","time":"14:00","tz":"America/New_York","type":"rate_decision","기관":"FOMC","이름":"FOMC 회의(10월 26~27일, 통화정책 전략 회의, 잠정)","출처":"federalreserve.gov","등급":"A"},
+    {"date":"2027-11-17","time":"14:00","tz":"America/New_York","type":"rate_decision","기관":"FOMC","이름":"FOMC 금리 결정(11월 16~17일, 잠정)","출처":"federalreserve.gov","등급":"A"},
+    {"date":"2027-11-25","time":"09:00","tz":"Asia/Seoul","type":"rate_decision","기관":"BOK","이름":"한국은행 통화정책방향 결정회의","출처":"언론 보도(SBS Biz 2026-10-29)","등급":"B"},
+    {"date":"2026-11-26","time":"09:00","tz":"Asia/Seoul","type":"rate_decision","기관":"BOK","이름":"한국은행 통화정책방향 결정회의(2026년 마지막)","출처":"언론 보도(SBS Biz 2026-10-29)","등급":"B"}
+  ]
+}

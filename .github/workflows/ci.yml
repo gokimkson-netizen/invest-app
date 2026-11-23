@@ -1,0 +1,26 @@
+name: ci
+# 비밀값을 쓰지 않는 테스트만 실행. 포크 PR에 비밀값을 주는 트리거는 쓰지 않는다(Secrets 노출 방지).
+on:
+  push: { branches: [main] }
+  pull_request: {}
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: ./.github/actions/setup
+      - run: npx tsc -p tsconfig.json
+      - run: npx vitest run
+      - run: python -m pytest -q batch/tests
+      - run: python scripts/check_repo.py
+  secrets-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: gitleaks/gitleaks-action@v2
+        env: { GITHUB_TOKEN: '${{ github.token }}' }

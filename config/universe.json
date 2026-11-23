@@ -1,0 +1,29 @@
+{
+  "_설명": "분석 유니버스(공개). 배치는 여기 적힌 대상만 수집·계산한다. 종목을 추가하면 이 파일이 공개된다. 관심종목은 여기에 넣지 말고 앱의 '내 관심종목'(브라우저에만 저장)에 넣는다.",
+  "indices": {
+    "SP500": { "이름": "S&P 500", "시장": "US", "구성종목_출처": "wikipedia:List_of_S&P_500_companies", "등급": "C", "M1": true },
+    "NDX": { "이름": "나스닥100", "시장": "US", "구성종목_출처": "wikipedia:Nasdaq-100", "등급": "C", "M1": true },
+    "KOSPI": { "이름": "코스피", "시장": "KR", "구성종목_출처": "dart:corp_cls=Y", "등급": "A", "M1": false }
+  },
+  "etfs": [
+    { "ticker": "SPY", "name": "SPDR S&P 500 ETF", "market": "US" },
+    { "ticker": "QQQ", "name": "Invesco QQQ", "market": "US" },
+    { "ticker": "DIA", "name": "SPDR Dow Jones ETF", "market": "US" },
+    { "ticker": "IWM", "name": "iShares Russell 2000", "market": "US" },
+    { "ticker": "SOXX", "name": "iShares Semiconductor ETF", "market": "US" },
+    { "ticker": "SMH", "name": "VanEck Semiconductor ETF", "market": "US" },
+    { "ticker": "TQQQ", "name": "ProShares UltraPro QQQ", "market": "US" },
+    { "ticker": "SOXL", "name": "Direxion Daily Semiconductor Bull 3X", "market": "US" },
+    { "ticker": "UPRO", "name": "ProShares UltraPro S&P500", "market": "US" },
+    { "ticker": "QLD", "name": "ProShares Ultra QQQ", "market": "US" },
+    { "ticker": "TLT", "name": "iShares 20+ Year Treasury", "market": "US" },
+    { "ticker": "GLD", "name": "SPDR Gold Shares", "market": "US" },
+    { "ticker": "069500", "name": "KODEX 200", "market": "KR" },
+    { "ticker": "229200", "name": "KODEX 코스닥150", "market": "KR" },
+    { "ticker": "122630", "name": "KODEX 레버리지", "market": "KR" }
+  ],
+  "crypto": [ { "ticker": "BTC", "name": "Bitcoin (USD)", "market": "CRYPTO", "stooq": "btcusd" } ],
+  "extra": [],
+  "_extra_예시": [ { "ticker": "035720", "name": "카카오", "market": "KR" } ],
+  "top_cap_count": 20
+}

@@ -1,0 +1,33 @@
+# Cloudflare Workers Free 플랜 전용. 유료(Paid) 플랜으로 바꾸지 않는다(한도 초과 시 과금이 아니라 Error 1027).
+# 비밀값은 여기 쓰지 않고 `wrangler secret put` 으로만 등록한다(README 'Worker 배포').
+name = "invest-relay"
+main = "src/index.ts"
+compatibility_date = "2026-11-01"
+workers_dev = true      # workers.dev 주소만 사용(라우트·커스텀 도메인 미사용 → fail open 문제 없음)
+
+[vars]
+ALLOWED_ORIGIN = "https://YOUR_GITHUB_ID.github.io"   # 자기 Pages 도메인 하나만(README에서 바꾸는 법 안내)
+DAILY_CAP = "2000"                                     # 전체 일일 상한(DART 하루 2만건·Workers 10만건보다 충분히 낮게)
+
+[[durable_objects.bindings]]
+name = "COUNTER"
+class_name = "DailyCounter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["DailyCounter"]   # Workers Free는 SQLite 기반 Durable Object만 사용 가능
+
+[[ratelimits]]
+name = "RL_IP"
+namespace_id = "1001"
+simple = { limit = 20, period = 60 }    # IP별 분당 20건
+
+[[ratelimits]]
+name = "RL_ALL"
+namespace_id = "1002"
+simple = { limit = 60, period = 60 }    # 전체 분당 60건
+
+[[ratelimits]]
+name = "RL_SEC"
+namespace_id = "1003"
+simple = { limit = 10, period = 10 }    # SEC: 10초에 10건 → 어떤 1초에도 10건을 넘지 않음

@@ -1,0 +1,18 @@
+{
+  "_설명": "M6 수집 대상. enabled=false 는 RSS 제공 여부·약관을 아직 확인하지 못한 출처(docs/data-sources.md 4-1). 확인 후 true로 바꾼다.",
+  "rss": [
+    { "id": "fed_monetary", "이름": "미 연준 통화정책 보도자료", "url": "https://www.federalreserve.gov/feeds/press_monetary.xml", "domain": "federalreserve.gov", "kind": "official", "market": "US", "enabled": true, "summary_allowed": true },
+    { "id": "fed_all", "이름": "미 연준 전체 보도자료", "url": "https://www.federalreserve.gov/feeds/press_all.xml", "domain": "federalreserve.gov", "kind": "official", "market": "US", "enabled": true, "summary_allowed": true },
+    { "id": "bls", "이름": "미 노동통계국", "url": "https://www.bls.gov/feed/bls_latest.rss", "domain": "bls.gov", "kind": "official", "market": "US", "enabled": false, "summary_allowed": true },
+    { "id": "bea", "이름": "미 경제분석국", "url": "https://apps.bea.gov/rss/rss.xml", "domain": "bea.gov", "kind": "official", "market": "US", "enabled": false, "summary_allowed": true },
+    { "id": "treasury", "이름": "미 재무부", "url": "https://home.treasury.gov/news/press-releases/feed", "domain": "treasury.gov", "kind": "official", "market": "US", "enabled": false, "summary_allowed": true },
+    { "id": "bok", "이름": "한국은행", "url": "https://www.bok.or.kr/portal/bbs/B0000245/news.rss?menuNo=200761", "domain": "bok.or.kr", "kind": "official", "market": "KR", "enabled": false, "summary_allowed": true },
+    { "id": "moef", "이름": "기획재정부", "url": "https://www.moef.go.kr/com/detailRssTagService.do?bbsId=MOSFBBS_000000000028", "domain": "moef.go.kr", "kind": "official", "market": "KR", "enabled": false, "summary_allowed": true },
+    { "id": "fsc", "이름": "금융위원회", "url": "https://www.fsc.go.kr/about/fsc_bbs_rss/?fid=0111", "domain": "fsc.go.kr", "kind": "official", "market": "KR", "enabled": false, "summary_allowed": true }
+  ],
+  "filings": {
+    "sec_8k": { "enabled": true, "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=8-K&company=&dateb=&owner=include&start=0&count=100&output=atom" },
+    "dart": { "enabled": true, "pblntf_ty": ["B", "I"] }
+  },
+  "media": []
+}

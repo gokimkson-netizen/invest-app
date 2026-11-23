@@ -1,0 +1,4 @@
+export const fmt = (v: number | null | undefined, d = 2) => (v === null || v === undefined || !Number.isFinite(v) ? '데이터 없음' : v.toLocaleString('ko-KR', { maximumFractionDigits: d }));
+export const pct = (v: number | null | undefined, d = 2) => (v === null || v === undefined || !Number.isFinite(v) ? '데이터 없음' : `${v.toLocaleString('ko-KR', { maximumFractionDigits: d })}%`);
+export const money = (v: number | null | undefined, cur: string) => (v === null || v === undefined || !Number.isFinite(v) ? '데이터 없음' : `${v.toLocaleString('ko-KR', { maximumFractionDigits: cur === 'KRW' || cur === '원' ? 0 : 2 })}${cur === 'KRW' || cur === '원' ? '원' : '달러'}`);
+export const kst = (iso: string | null | undefined) => (iso ? new Date(iso).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }) : '-');

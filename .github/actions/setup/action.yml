@@ -1,0 +1,14 @@
+name: setup
+description: Node·Python 설치, 의존성 설치(lock 고정), 계산 CLI 번들
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with: { node-version: 22, cache: npm }
+    - uses: actions/setup-python@v5
+      with: { python-version: '3.12', cache: pip, cache-dependency-path: batch/requirements.txt }
+    - shell: bash
+      run: |
+        npm ci --no-audit --no-fund
+        python -m pip install -q -r batch/requirements.txt
+        node scripts/build_cli.mjs
